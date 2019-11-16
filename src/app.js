@@ -5,6 +5,9 @@ const app = express()
 const geocode = require('./utils/geocode')
 const forecast = require('./utils/forecast')
 
+
+const port = process.env.PORT || 3000
+
 // Define path for Express config
 const publicFolder = path.join(__dirname, '../public')
 const viewsPath = path.join(__dirname, '../templates/views')
@@ -94,6 +97,6 @@ app.get('*', (req, res) => {
     res.send('404 page')
 })
 
-app.listen(3000, () => {
-    console.log('Server is up on port 3000.')
+app.listen(port, () => {
+    console.log('Server is up on port ' + port + '.')
 })
